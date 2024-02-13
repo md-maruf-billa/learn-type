@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Typing</title>
+
+    <!-- -----Tailwind and Daisy Ui links--- -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ---------Custom CSS file links--- -->
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <main class="bg-[#010313] min-h-screen bg-[url(./images/background.png)] bg-no-repeat bg-center">
+        <!-- ------------------------Screen 1 -------------------->
+
+        <section id="lets-play" class="">
+            <div class="min-h-screen flex flex-col justify-center items-center gap-6">
+                <h1 class="text-[170px] font-heading text-white">ALPHABET CLASH</h1>
+                <p class="text-white">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+                <button onclick="lets_play()" class="btn text-xl">Play Now</button>
+            </div>
+        </section>
+
+
+        <!-- -----------------------Screen 2-------------------- -->
+
+        <section id="play-ground" class="hidden">
+
+
+            <div class="flex flex-col items-center pt-20 gap-20">
+                <!-- ----------Display-------- -->
+                <div
+                    class="artboard artboard-horizontal phone-6 border-[20px] rounded-lg border-[#010313CC] bg-[#FFFFFFB2]">
+                    <div class="flex items-center justify-center">
+                        <p class="bg-[#010313CC] text-white rounded-b-lg px-4 py-1">Don't watch keyboard while
+                            playing...</p>
+                    </div>
+                    <div class="flex justify-center items-center h-full">
+                        <h1 id="output-screen" class="uppercase font-bold text-9xl ">y</h1>
+
+                    </div>
+                </div>
+
+
+
+                <!-- --------Key-board------ -->
+                <div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="q" class="kbd">q</kbd>
+                        <kbd id="w" class="kbd">w</kbd>
+                        <kbd id="e" class="kbd">e</kbd>
+                        <kbd id="r" class="kbd">r</kbd>
+                        <kbd id="t" class="kbd">t</kbd>
+                        <kbd id="y" class="kbd">y</kbd>
+                        <kbd id="u" class="kbd">u</kbd>
+                        <kbd id="i" class="kbd">i</kbd>
+                        <kbd id="o" class="kbd">o</kbd>
+                        <kbd id="p" class="kbd">p</kbd>
+                    </div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="a" class="kbd">a</kbd>
+                        <kbd id="s" class="kbd">s</kbd>
+                        <kbd id="d" class="kbd">d</kbd>
+                        <kbd id="f" class="kbd">f</kbd>
+                        <kbd id="g" class="kbd">g</kbd>
+                        <kbd id="h" class="kbd">h</kbd>
+                        <kbd id="j" class="kbd">j</kbd>
+                        <kbd id="k" class="kbd">k</kbd>
+                        <kbd id="l" class="kbd">l</kbd>
+                    </div>
+                    <div class="flex justify-center gap-1 my-1 w-full">
+                        <kbd id="z" class="kbd">z</kbd>
+                        <kbd id="x" class="kbd">x</kbd>
+                        <kbd id="c" class="kbd">c</kbd>
+                        <kbd id="v" class="kbd">v</kbd>
+                        <kbd id="b" class="kbd">b</kbd>
+                        <kbd id="n" class="kbd">n</kbd>
+                        <kbd id="m" class="kbd">m</kbd>
+                        <kbd id="/" class="kbd">/</kbd>
+                    </div>
+                </div>
+
+                <!-- --------button-------- -->
+                <div class="flex justify-between w-[20%]">
+                    <button class="btn rounded-full bg-[#894189] border-none outline-none text-white font-semibold">
+                        Life
+                        <img src="./images/love.svg" alt="">
+                        <span>10</span>
+                    </button>
+                    <button class="btn rounded-full bg-[#360490] border-none outline-none text-white font-semibold">
+                        Score
+                        <img src="./images/doller.svg" alt="">
+                        <span>0</span>
+                    </button>
+                </div>
+            </div>
+
+
+        
+        </section>
+
+
+
+        <!-- -----------------------Screen 3--------------------- -->
+
+        <section id="see-score" class="hidden">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="text-white bg-[linear-gradient(121deg,rgba(255,255,255,0.56)0%,rgba(152,151,151,0.00)102.2%)] w-96 p-10 rounded-xl text-center space-y-6">
+                    <h1 class=" text-6xl ">
+                        <span class="font-bold">Score :</span> <span>0</span>
+                    </h1>
+                
+                    <button class="btn text-xl font-semibold">Play Again</button>
+                    <p>Practice will make you Pro</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
+    <!-- -----Custom JavaScript File links -->
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>
