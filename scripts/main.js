@@ -1,10 +1,16 @@
-// ------common variable hare
-let score = document.getElementById('score');
-let life = document.getElementById('life');
-let score_value = 0;
-let life_value = 10;
+
+
+let score = findInnerHtml('score');
+let life = findInnerHtml('life');
+console.log(life)
+let score_value = parseInt(score.innerText);
+let life_value = parseInt(life.innerText);
 // Common function hare---------------
 
+function findInnerHtml(userId) {
+    return document.getElementById(userId);
+
+}
 function display_hidden(elementId) {
     document.getElementById(elementId).classList.add('hidden');
 }
@@ -24,7 +30,7 @@ function display_append() {
 function user_press(event) {
     let find_key = event.key;
     let update_screen = document.getElementById('output-screen').innerText.toLocaleLowerCase();
-    
+
     // ---Checking condition on find_key and update_screen are same or not
 
     if (find_key === update_screen) {
@@ -36,10 +42,12 @@ function user_press(event) {
     else {
         life_value -= 1;
         life.innerText = life_value;
-        wrongKeyboard_button_press(find_key);
+        console.log(life_value)
     }
-    
-    
+    if (find_key === 'Escape' || life_value <= 0) {
+        gameOver()
+    }
+
 }
 
 // letter highlighter 
@@ -48,7 +56,7 @@ function random_letter() {
     // convert to a array
     const alphabet_array = alphabet.split('');
     // generate a random alphabet
-    let word = alphabet_array[Math.round(Math.random() * alphabet_array.length - 1)];
+    let word = alphabet_array[Math.round(Math.random() * 25)];
     return word;
 }
 
@@ -56,11 +64,9 @@ function setKeyboard_button_color(key_button) {
     document.getElementById(key_button).classList.add('bg-green-400');
 }
 function removeKeyboard_button_color(key_button) {
-    document.getElementById(key_button).classList.remove('bg-green-400','bg-red-400');
+    document.getElementById(key_button).classList.remove('bg-green-400', 'bg-red-400');
 }
-function wrongKeyboard_button_press(key_button) {
-    document.getElementById(key_button).classList.add('bg-red-400');
-}
+
 
 
 
@@ -70,10 +76,29 @@ function wrongKeyboard_button_press(key_button) {
 // Onclick function hare-------------
 
 function lets_play() {
+    score_value = 0;
+    life_value = 5;
+    findInnerHtml('score').innerText = score_value;
+    findInnerHtml('life').innerText = life_value;
     display_hidden('lets-play');
     display_show('play-ground');
+    display_hidden('see-score')
     display_append()
+    document.addEventListener('keyup', user_press);
+
+    // -----reset score 
     
 }
 
-document.addEventListener('keyup', user_press);
+
+function gameOver() {
+    display_hidden('play-ground');
+    display_show('see-score');
+
+    // append final score
+    document.getElementById('final-score').innerText = score.innerText;
+
+    // reset play ground
+    let display = document.getElementById('output-screen').innerText.toLocaleLowerCase()
+    removeKeyboard_button_color(display);
+}
